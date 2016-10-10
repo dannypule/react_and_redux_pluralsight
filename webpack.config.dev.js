@@ -1,26 +1,26 @@
 import webpack from 'webpack';
-import path from 'path';
+import path from 'path'; // path is a node.js utility
 
 export default {
-  debug: true,
-  devtool: 'cheap-module-eval-source-map',
-  noInfo: false,
-  entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
-    'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-    './src/index'
+  debug: true, // debug mode set to true
+  devtool: 'cheap-module-eval-source-map', // one of many options we could use to our devtool
+  noInfo: false, // webpack will display a list of all the files it's bundling
+  entry: [ // defines entry point for app
+    'eventsource-polyfill', // middleware necessary for hot reloading with IE
+    'webpack-hot-middleware/client?reload=true', // middleware reloads the page if hot module reloading fails.
+    './src/index' // app's entry point passed in last - order is critical
   ],
-  target: 'web',
-  output: {
+  target: 'web', // we can also set this to node if we were using webpack to run in node. set to web for web browser use
+  output: { // we tell webpack where to create our dev bundle (creates bundles in memory)
     path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
+  devServer: { // we tell webpack's devServer where our code is
     contentBase: './src'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+  plugins: [ // define some plugins which will enhance webpack's power
+    new webpack.HotModuleReplacementPlugin(), // allow to replace modules without having to do a full refresh
     new webpack.NoErrorsPlugin()
   ],
   module: {

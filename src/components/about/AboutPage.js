@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AboutPage extends React.Component {
+class AboutPage extends React.Component { // AboutPage is a container component
   render(){
     return (
       <div>
@@ -11,4 +11,4 @@ class AboutPage extends React.Component {
   }
 }
 
-export default AboutPage;
+export default AboutPage; // export AboutPage

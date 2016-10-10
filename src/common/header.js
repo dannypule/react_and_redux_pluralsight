@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
 
-const Header = () => {
+const Header = () => { // Header is a presentational component
   return (
     <nav>
       <IndexLink to="/" activeClassName="active">Home</IndexLink>
@@ -13,4 +13,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header; // export Header
